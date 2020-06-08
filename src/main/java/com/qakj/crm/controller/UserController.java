@@ -1,6 +1,7 @@
 package com.qakj.crm.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.qakj.crm.pojo.Customers;
 import com.qakj.crm.pojo.User;
 import com.qakj.crm.service.UserService;
 @RequestMapping("userController")
@@ -62,4 +64,75 @@ public class UserController {
     	   map.put("core", "200");
     	return map;
     }
+    
+    @RequestMapping("/findAll")
+    public Object findAll(){
+    	List<User> findAll = userService.findAll();
+    	if(findAll != null && findAll.size()>0){
+    		 return findAll;
+    	}
+		 return null;
+    }
+    @RequestMapping("/delete")
+    public Object delete(@RequestParam("id") int id){
+    	int deleteById = userService.deleteById(id);
+    	if(deleteById != 0 && deleteById > 0){
+   		 return deleteById;
+   	}
+    	return null;
+    }
+    
+    @RequestMapping("/addUser")
+    public Object addUser(User user){
+    	Map<String,Object> map=new HashMap<String,Object>();
+    	int addUser = userService.addUser(user);
+        if(addUser != 0 && addUser > 0){
+        	map.put("list", addUser);
+        	map.put("code", "200");
+          	return map;
+        }
+    	map.put("msg", "添加失败");
+		map.put("code", "400");
+       	return map;
+    }
+    
+    //查询所有 ，分页，模糊查询
+    @RequestMapping("/queryAllCustomer")
+  public Map<String,Object> queryAllCustomer(@RequestParam("currectPage") Integer currectPage,
+		      @RequestParam("sizePage") Integer sizePage){
+   	 Map<String,Object> map=new HashMap<String,Object>();
+   	  int co = userService.countAllByLike();
+   	  int count=(co%sizePage)==0?(co/sizePage):(co/sizePage)+1;
+	     List<User> list = userService.querAllUser(currectPage, sizePage);
+	      map.put("user", list);
+	      map.put("count", count);
+	   return map;
+  }
+    
+    //修改
+    @RequestMapping("/findOne")
+    public Object findOne(@RequestParam("id")Integer id){
+    	 Map<String,Object> map=new HashMap<String,Object>();
+    	 User user = userService.findOne(id);
+    	 if(user != null){
+    		  map.put("user", user);
+    	      map.put("code", "200");
+    		 return map;
+    	 }
+    	  map.put("code", "400");
+ 		 return map;
+    }
+    @RequestMapping("/update")
+    public Object update(User user){
+    	 Map<String,Object> map=new HashMap<String,Object>();
+    	if(user != null){
+    		int update = userService.update(user);
+    		map.put("update", update);
+   	      	map.put("code", "200");
+   	      	return map;
+    	}
+    	map.put("code", "400");
+	    return map;
+    }
+    
 }

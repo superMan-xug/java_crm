@@ -1,5 +1,6 @@
 package com.qakj.crm.test;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -24,5 +25,10 @@ public class CustomerTest {
 			 System.out.println(customers);
 		}
 		
+	}
+	@Test
+	public void getcustomers(){
+		Date d=new Date();
+		 Customers c=new Customers("zhangsan", 1, 1, "21312", "12312", d, 1);
 	}
 }

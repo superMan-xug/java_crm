@@ -84,4 +84,34 @@ public class Customers {
     public void setLevel(Integer level) {
         this.level = level;
     }
+
+	public Customers(Integer id, String name, Integer age, Integer sex, String email, String phone, Date birth,
+			Integer level) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+		this.email = email;
+		this.phone = phone;
+		this.birth = birth;
+		this.level = level;
+	}
+
+	public Customers(String name, Integer age, Integer sex, String email, String phone, Date birth, Integer level) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+		this.email = email;
+		this.phone = phone;
+		this.birth = birth;
+		this.level = level;
+	}
+
+	public Customers() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+    
 }

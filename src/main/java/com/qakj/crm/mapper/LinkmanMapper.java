@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface LinkmanMapper {
+	 List<Linkman> getLinkmanById(int id);
 	
 	 List<Linkman> getLinkmans();
 	

@@ -13,4 +13,8 @@ public interface CustomerService {
 	 void deleteById(int id);
 	 //注册添加用户
 	 int addCustomer(Customers c);
+	 //回显用户
+	 Customers fingOne(int id);
+	 //修改用户
+	 int updateCustomer(Customers customer);
 }

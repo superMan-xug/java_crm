@@ -56,4 +56,23 @@ public class CustomerController {
     	 }
     	 
      }
+      
+     @RequestMapping("/findOne")
+     public Map<String,Object> fingOne(@RequestParam("id") int id){
+    	  Map<String,Object> map=new HashMap<String,Object>();
+    	  Customers customer = customerService.fingOne(id);
+    	  map.put("customer", customer);
+    	  return map;
+     }
+     
+     @RequestMapping("/updateCustomer")
+     public Map<String,Object> updateCustomer(Customers customer){
+    	  Map<String,Object> map=new HashMap<String,Object>();
+    	   int i = customerService.updateCustomer(customer);
+    	   if(i>=0){
+    		   map.put("core", "200");
+    		   
+    	   }
+    	  return map;
+     }
 }

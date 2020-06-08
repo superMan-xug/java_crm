@@ -46,4 +46,17 @@ public class CustomerServiceImpl implements CustomerService {
 		int i = customerMapper.insertSelective(c);
 		return i;
 	}
+
+
+	@Override
+	public Customers fingOne(int id) {
+		Customers customer = customerMapper.selectByPrimaryKey(id);
+		return customer;
+	}
+
+	@Override
+	public int updateCustomer(Customers customer) {
+		int i = customerMapper.updateByPrimaryKeySelective(customer);
+		return i;
+	}
 }

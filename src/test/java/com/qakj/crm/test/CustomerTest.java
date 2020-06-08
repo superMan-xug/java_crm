@@ -26,12 +26,5 @@ public class CustomerTest {
 		}
 		
 	}
-	
-	@Test
-	public void queryCustomer1(){
-		Date d=new Date();
-		 Customers c=new Customers("12", 1, 1, "123", "",d, 1);
-		 cs.addCustomer(c);
-		
-	}
+
 }

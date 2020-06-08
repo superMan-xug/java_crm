@@ -88,6 +88,7 @@ public class Customers {
         this.level = level;
     }
 
+	
 	public Customers(Integer id, String name, Integer age, Integer sex, String email, String phone, Date birth,
 			Integer level) {
 		super();

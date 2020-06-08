@@ -21,4 +21,10 @@ public class LinkmanServiceImpl implements LinkmanService {
 		return list;
 	}
 
+	@Override
+	public List<Linkman> getLinkmanById(int id) {
+		List<Linkman> list = linkmanMapper.getLinkmanById(id);
+		return list;
+	}
+
 }

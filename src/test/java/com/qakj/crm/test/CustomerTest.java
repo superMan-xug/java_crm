@@ -26,9 +26,5 @@ public class CustomerTest {
 		}
 		
 	}
-	@Test
-	public void getcustomers(){
-		Date d=new Date();
-		 Customers c=new Customers("zhangsan", 1, 1, "21312", "12312", d, 1);
-	}
+
 }

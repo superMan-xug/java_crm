@@ -2,6 +2,8 @@ package com.qakj.crm.pojo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 public class Customers {
@@ -16,6 +18,7 @@ public class Customers {
     private String email;
 
     private String phone;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @JSONField(format="yyyy-MM-dd")
     private Date birth;
 
@@ -85,6 +88,7 @@ public class Customers {
         this.level = level;
     }
 
+	
 	public Customers(Integer id, String name, Integer age, Integer sex, String email, String phone, Date birth,
 			Integer level) {
 		super();
@@ -98,6 +102,11 @@ public class Customers {
 		this.level = level;
 	}
 
+	public Customers() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Customers(String name, Integer age, Integer sex, String email, String phone, Date birth, Integer level) {
 		super();
 		this.name = name;
@@ -107,11 +116,6 @@ public class Customers {
 		this.phone = phone;
 		this.birth = birth;
 		this.level = level;
-	}
-
-	public Customers() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
     
 }

@@ -11,4 +11,6 @@ public interface CustomerService {
 	 int selectAllByLike(String name);
 	 //根据ID删除用户
 	 void deleteById(int id);
+	 //注册添加用户
+	 int addCustomer(Customers c);
 }

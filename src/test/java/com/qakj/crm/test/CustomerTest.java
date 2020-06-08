@@ -1,5 +1,6 @@
 package com.qakj.crm.test;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -23,6 +24,14 @@ public class CustomerTest {
 		 for (Customers customers : list) {
 			 System.out.println(customers);
 		}
+		
+	}
+	
+	@Test
+	public void queryCustomer1(){
+		Date d=new Date();
+		 Customers c=new Customers("12", 1, 1, "123", "",d, 1);
+		 cs.addCustomer(c);
 		
 	}
 }

@@ -39,4 +39,11 @@ public class CustomerServiceImpl implements CustomerService {
 	public void deleteById(int id) {
          customerMapper.deleteByPrimaryKey(id);		
 	}
+
+
+	@Override
+	public int addCustomer(Customers c) {
+		int i = customerMapper.insertSelective(c);
+		return i;
+	}
 }

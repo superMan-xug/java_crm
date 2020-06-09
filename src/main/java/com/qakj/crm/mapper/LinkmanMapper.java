@@ -6,9 +6,9 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface LinkmanMapper {
-	 List<Linkman> getLinkmanById(int id);
+	 List<Linkman> getLinkmanById(@Param("id") int id,@Param("static") int currentPage,@Param("stop") int pageSize);
 	
-	 List<Linkman> getLinkmans();
+	 List<Linkman> getLinkmans(@Param("static") int currentPage,@Param("stop") int pageSize);
 	
     int countByExample(LinkmanExample example);
 

@@ -18,17 +18,17 @@
     <result column="u_role" property="role" jdbcType="INTEGER" />
     </association>
   </resultMap>
-    <select id="getLinkmans" resultMap="BaseResultMap2">
+    <select id="getLinkmans" resultMap="BaseResultMap2" parameterType="map">
       SELECT
 		l.id l_id,l.name l_name,l.phone l_phone,l.email l_email,l.qq l_qq,l.user_id l_user_id,
 		u.id u_id,u.username u_username,u.password u_password,u.name u_name,u.age u_age,u.email u_email,u.role u_role
-	FROM linkman l,users u WHERE l.user_id = u.id; 
+	FROM linkman l,users u WHERE l.user_id = u.id  LIMIT #{static},#{stop}; 
     </select>
-    <select id="getLinkmanById" resultMap="BaseResultMap2" parameterType="java.lang.Integer">
+    <select id="getLinkmanById" resultMap="BaseResultMap2" parameterType="map">
       SELECT
 		l.id l_id,l.name l_name,l.phone l_phone,l.email l_email,l.qq l_qq,l.user_id l_user_id,
 		u.id u_id,u.username u_username,u.password u_password,u.name u_name,u.age u_age,u.email u_email,u.role u_role
-	FROM linkman l,users u WHERE l.user_id = u.id and u.id=#{id}; 
+	FROM linkman l,users u WHERE l.user_id = u.id and u.id=#{id} LIMIT #{static},#{stop}; 
     </select>
   <resultMap id="BaseResultMap" type="com.qakj.crm.pojo.Linkman" >
     <id column="id" property="id" jdbcType="INTEGER" />

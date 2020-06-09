@@ -18,9 +18,5 @@ public class LinkmanTest {
 	
 	@Test
 	public void getLikemans(){
-		 List<Linkman> linkmans = ls.getLinkmans();
-		 for (Linkman linkman : linkmans) {
-			 System.out.println(linkman);
-		}
 	}
 }

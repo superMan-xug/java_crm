@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.qakj.crm.mapper.UserMapper" >
+<select id="queryAllUserByLimitAndLike" parameterType="map" resultMap="BaseResultMap">
+ select * from users  limit #{staic},#{stop}
+</select>
   <resultMap id="BaseResultMap" type="com.qakj.crm.pojo.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />

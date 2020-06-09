@@ -1,11 +1,16 @@
 package com.qakj.crm.mapper;
 
+import com.qakj.crm.pojo.Customers;
 import com.qakj.crm.pojo.User;
 import com.qakj.crm.pojo.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
+	
+	List<User> queryAllUserByLimitAndLike(
+			 @Param("staic") Integer currectPage,@Param("stop") Integer sizePage);
+	
     int countByExample(UserExample example);
 
     int deleteByExample(UserExample example);
